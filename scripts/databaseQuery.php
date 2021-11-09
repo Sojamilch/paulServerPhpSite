@@ -14,7 +14,7 @@ if($conn === false){
 
 $name = $_REQUEST['name'];
 
-$sql = "INSERT INTO table1 VALUES ('$name')";
+$sql = "INSERT INTO table1 (name) VALUES ('$name')";
 
 if (mysqli_query($conn, $sql)){
 
