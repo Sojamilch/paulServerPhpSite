@@ -7,6 +7,11 @@ $dbname = "harrisonTest";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+if($conn === false){
+    die("ERROR: Could not connect. " 
+        . mysqli_connect_error());
+}
+
 $name = $_REQUEST['name'];
 
 $sql = "INSERT INTO table1 VALUES ('$name')";
