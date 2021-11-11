@@ -1,11 +1,8 @@
 <?php 
 
-$servername = "localhost";
-$username = "harrison1";
-$password = "0000";
-$dbname = "harrisonTest";
+$config = parse_ini_file('config/db.ini');
 
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+$conn = mysqli_connect($config['servername'], $config['username'], $config['password'], $config['db']);
 
 if($conn === false){
     die("ERROR: Could not connect. " 
@@ -17,6 +14,13 @@ $name = $_REQUEST['name'];
 
 $sql = "INSERT INTO table1 (name) VALUES ('$name');";
 
+
+if (mysqli_query($conn, $sql)) {
+    echo "New record created successfully";
+  } else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  }
+  
 
 mysqli_close($conn);
 
