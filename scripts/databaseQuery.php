@@ -1,27 +1,29 @@
 <?php 
 
-$config = parse_ini_file('config/db.ini');
 
-$conn = mysqli_connect($config['servername'], $config['username'], $config['password'], $config['db']);
+class sqlConnection {
+  
+  private $conn;
 
-if($conn === false){
-    die("ERROR: Could not connect. " 
-        . mysqli_connect_error());
+  public function __construct() //Connects to the database 
+  {
+
+    $config = parse_ini_file('config/db.ini');
+    $this->conn = mysqli_connect($config['servername'], $config['username'], $config['password'], $config['db']) or die(mysqli_error($this->conn));
+
+  }
+
+  public function executeQuery($sql) //Executes any query onto the database regardless of where it comes from
+  {
+    $query = mysqli_query($this->conn,$sql);
+    
+  }
+
+
+
+
 }
 
 
-$name = $_REQUEST['name'];
-
-$sql = "INSERT INTO table1 (name) VALUES ('$name');";
-
-
-if (mysqli_query($conn, $sql)) {
-    echo "New record created successfully";
-  } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-  }
-  
-
-mysqli_close($conn);
 
 ?>
