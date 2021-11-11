@@ -5,9 +5,14 @@ class submissionController extends sqlConnection {
 
     public function artistSubmission($postData){ //Submits the data that comes from the admin art page
 
-        $name = $postData['name'];
+        $paintingName = $postData['paintingName'];
+        $aristName = $postData['artistName'];
+        $price = $postData['paintingPrice'];
+        $size = $postData['paintingSize'];
+        $description = $postData['paintingDescription'];   
 
-        $sql = $sql = "INSERT INTO table1 (name) VALUES ('$name');";
+
+        $sql = "INSERT INTO `prints` (`artist_id`, `print_name`, `price`, `size`, `description`) VALUES ('$aristName', '$paintingName', '$price', '$size', '$description');";
 
         parent::executeQuery($sql);
 
