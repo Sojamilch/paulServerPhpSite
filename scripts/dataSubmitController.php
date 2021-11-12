@@ -1,5 +1,8 @@
 <?php
 
+session_start();
+
+
 include 'databaseQuery.php';
 class submissionController extends sqlConnection {
 
@@ -22,11 +25,16 @@ class submissionController extends sqlConnection {
     
 }
 
+
 $submissionController = new submissionController;
 
 if(isset($_POST['inputData']))
 {
+
     $submissionController->artistSubmission($_POST);
+    $_SESSION["submitSuccess"] = 1; 
+    echo "<script> location.href = '../inputArtist.php';</script>";
+
 }
 
 

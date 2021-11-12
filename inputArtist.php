@@ -34,7 +34,19 @@ session_start();
                         <input name="paintingImage" type="file" class="form-control" id="paintingImage" accept="image/png" >
                     </div>
                     <input type="submit" class="btn btn-primary" value="Upload" name="inputData"></input>
+                    <div id="successMessage">
+                        <?php if ($_SESSION['submitSuccess'] == 1) { $_SESSION['submitSuccess'] = 0;?>
+                            <h1 style="color:green;">Input successful!</h1>
+                        <?php } ?>
+                        
+                    </div>
                 </form>
         </div>
     </div>
+    <script>
+        setTimeout(fade_out, 5000);
+        function fade_out() {
+            $("#successMessage").fadeOut().empty();
+        }
+    </script>
 </body>
