@@ -33,7 +33,7 @@ session_start();
                         <label for="paintingImage" class="form-label" >Upload Image</label>
                         <input name="paintingImage" type="file" class="form-control" id="paintingImage" accept="image/png" >
                     </div>
-                    <input type="submit" class="btn btn-primary" value="Upload" name="inputData"></input>
+                    <input type="submit" class="btn btn-primary" value="Upload" name="inputArtist"></input>
                     <div id="successMessage">
                         <?php if ($_SESSION['submitSuccess'] == 1) { $_SESSION['submitSuccess'] = 0;?>
                             <h1 style="color:green;">Input successful!</h1>

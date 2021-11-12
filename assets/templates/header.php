@@ -32,7 +32,7 @@
             </ul>
             </li>
             <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
+            <a class="nav-link" href="signup.php">Sign Up</a>
             </li>
         </ul>
  

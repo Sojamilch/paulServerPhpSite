@@ -3,7 +3,7 @@
 
 class sqlConnection {
   
-  private $conn;
+  public $conn;
 
   public function __construct() //Connects to the database 
   {
