@@ -4,7 +4,7 @@ include 'assets/templates/header.php';
 session_start();
 ?>
 <body>
-    <div class="d-flex justify-content-center align-items-center container mt-5" id="login form">
+    <div class="d-flex justify-content-center align-items-center container mt-5" id="sign up form">
             <form action="/scripts/dataSubmitController.php" method="post">
             <div class="mb-3">
                 <label for="inputUsername" class="form-label">User Name</label>
