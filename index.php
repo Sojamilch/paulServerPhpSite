@@ -2,6 +2,7 @@
 
 include('assets/templates/header.php')
 
+
 ?>
 
 <body>
