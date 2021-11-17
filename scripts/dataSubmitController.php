@@ -9,14 +9,28 @@ class submissionController extends sqlConnection {
 
     public function artistSubmission($postData){ //Submits the data that comes from the admin art page
 
+
+        $filePath = '../assets/images';
+
+
+
         $paintingName = $postData['paintingName'];
         $aristName = $postData['artistName'];
         $price = $postData['paintingPrice'];
         $size = $postData['paintingSize'];
         $description = $postData['paintingDescription'];   
+        
+        if(move_uploaded_file($_FILES['paintingImage']['tmp_name'], $filePath))
+        {
+
+            // 
+
+        }
 
 
-        $sql = "INSERT INTO `prints` (`artist_id`, `print_name`, `price`, `size`, `description`) VALUES ('$aristName', '$paintingName', '$price', '$size', '$description');";
+
+
+        $sql = "INSERT INTO `prints` (`artistName`, `printName`, `price`, `size`, `description`,'imageData') VALUES ('$aristName', '$paintingName', '$price', '$size', '$description')";
 
         parent::executeQuery($sql);
 
