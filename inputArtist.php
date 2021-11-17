@@ -7,7 +7,7 @@ session_start();
     <div class="d-flex justify-content-center align-items-center container mt-5" id="adminForm">
         <div class="row">
                 <h1> Add a Painting </h1>
-                <form method="post" action="/scripts/dataSubmitController.php" enctype="multipart/form-data">
+                <form method="post" action="scripts/dataSubmitController.php" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="paintingName" class="form-label">Painting Name</label>
                         <input name="paintingName" type="text" class="form-control" id="paintingName" aria-describedby="paintingNameHelp" placeholder="Enter painting name">
