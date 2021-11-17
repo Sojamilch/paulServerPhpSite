@@ -28,9 +28,11 @@ session_start();
             <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.php">Home</a>
             </li>
+            <?php if($_SESSION['loggedin'] == TRUE) { ?>
             <li class="nav-item">
             <a class="nav-link" href="inputArtist.php">Artist Add</a>
             </li>
+            <?php } ?>
             <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Dropdown
@@ -45,9 +47,18 @@ session_start();
 
             <li class="nav-item">
             <?php if($_SESSION['loggedin'] != TRUE) { ?>    
+
             <a class="nav-link" href="signup.php">Sign Up</a>
+            </li>
+            <li class="nav-item">
             <a class="nav-link" href="login.php">Login</a>
+            </li>
+            <?php } elseif($_SESSION['loggedin'] == TRUE) { ?>
+            <li class="nav-item">
+            <a class="nav-link" href="scripts/authenticate.php">Log Out</a>
+            </li>
             <?php } ?>
+
             </li>
         </ul>
  

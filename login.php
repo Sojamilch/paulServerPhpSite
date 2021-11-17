@@ -15,7 +15,19 @@ include('assets/templates/header.php');
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input name="password" type="password" class="form-control" id="exampleInputPassword1">
             </div>
-            <button type="submit" class="btn btn-primary" name="createUser">Login</button>
+            <button type="submit" class="btn btn-primary" name="loginSystem">Login</button>
+            <div id="errorMessage">
+                        <?php if ($_SESSION['passwordCheck'] == 0) { $_SESSION['passwordCheck'] = NULL;?>
+                            <h2 style="color:red;">Wrong Username/Password</h2>
+                        <?php } ?>
+                        
+            </div>
             </form>
+    <script>
+        setTimeout(fade_out, 5000);
+        function fade_out() {
+            $("#errorMessage").fadeOut().empty();
+        }
+    </script>
 </body>
 

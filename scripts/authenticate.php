@@ -29,31 +29,52 @@ class loginSystem extends sqlConnection
                 $_SESSION['loggedin'] = TRUE;
                 $_SESSION['name'] = $_POST['userName'];
                 $_SESSION['id'] = $id;
-
+                echo "<script> location.href = '../index.php';</script>";
+                $stmt->close();
+                
+                
                 
 
             } else {
                 // wrong password
                 $_SESSION['passwordCheck'] = 0;
+                echo "<script> location.href = '../login.php';</script>";
             }
                 
 
-        } else 
+        } else {
+
             //wrong username
             $_SESSION['passwordCheck'] = 0;
+            $stmt->close();
+            echo "<script> location.href = '../login.php';</script>";
+            
+        }
+        
+    
+    }
+    public function logout(){
 
-        $stmt->close();
-
+        session_start();
+        session_destroy();
     }
 
 }
 
 $loginSystem = new loginSystem;
 
-$loginSystem->login($_POST);
+if(isset($_POST['loginSystem']))
+{
+    $loginSystem->login($_POST); 
+    
+} else {
+    $loginSystem->logout();
+    echo "<script> location.href = '../index.php';</script>";
+}
+
 
 if($_SESSION['loggedin'] == TRUE){
-    echo "<script> location.href = '../index.php';</script>";
+   
 }
 
 
