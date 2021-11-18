@@ -15,8 +15,8 @@ if ($_SESSION['loggedin'] != TRUE)
     <div class="d-flex justify-content-center align-items-center container mt-5">
 
 
-        <br><h5> Username: <?php echo $_SESSION['name'] ?> </h5> </br>
-        <br></br>
+        <h5> Username: <?php echo $_SESSION['name'] ?> <br></br></h5> 
+        
         <h5> ID:  <?php echo $_SESSION['id'] ?> </h5>
 
     
