@@ -17,7 +17,7 @@ include('assets/templates/header.php');
             </div>
             <button type="submit" class="btn btn-primary" name="loginSystem">Login</button>
             <div id="errorMessage">
-                        <?php if ($_SESSION['passwordCheck'] == 0) { $_SESSION['passwordCheck'] = NULL;?>
+                        <?php if ($_SESSION['passwordCheck'] == 1) { $_SESSION['passwordCheck'] = 0;?>
                             <h2 style="color:red;">Wrong Username/Password</h2>
                         <?php } ?>
                         

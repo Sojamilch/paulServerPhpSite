@@ -7,7 +7,7 @@ class loginSystem extends sqlConnection
     
     public function login($postData)
     {
-        $_SESSION['passwordCheck'] = 1;
+        
         
         $stmt = $this->conn->prepare("SELECT id, password FROM users WHERE username = ?");
         //fetches the id and password thats related to the input username 
@@ -37,7 +37,7 @@ class loginSystem extends sqlConnection
 
             } else {
                 // wrong password
-                $_SESSION['passwordCheck'] = 0;
+                $_SESSION['passwordCheck'] = 1;
                 echo "<script> location.href = '../login.php';</script>";
             }
                 
@@ -45,7 +45,7 @@ class loginSystem extends sqlConnection
         } else {
 
             //wrong username
-            $_SESSION['passwordCheck'] = 0;
+            $_SESSION['passwordCheck'] = 1;
             $stmt->close();
             echo "<script> location.href = '../login.php';</script>";
             
