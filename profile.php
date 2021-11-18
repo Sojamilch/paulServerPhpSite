@@ -14,6 +14,10 @@ if ($_SESSION['loggedin'] != TRUE)
      
     <div class="d-flex justify-content-center align-items-center container mt-5">
 
+
+        <h5> Username: <?php $_SESSION['name'] ?> </h5>
+        <h5> ID:  <?php $_SESSION['id'] ?> </h5>
+
     
     </div>
 
