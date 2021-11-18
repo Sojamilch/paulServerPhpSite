@@ -15,10 +15,21 @@ if ($_SESSION['loggedin'] != TRUE)
     <div class="d-flex justify-content-center align-items-center container mt-5">
 
 
-        <p> Username: <?php echo $_SESSION['name'] ?></p> 
-        
-        <p> ID:  <?php echo $_SESSION['id'] ?> </p>
-
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">User Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row"> <?php echo $_SESSION['id'] ?> </th>
+                <th scope="row"> <?php echo $_SESSION['name'] ?></th>
+            </tr>
+        </tbody>
+    </table>
+ 
     
     </div>
 
