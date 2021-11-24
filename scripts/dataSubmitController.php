@@ -28,11 +28,15 @@ class submissionController extends sqlConnection {
         }
 
 
+        $stmt = $this->conn->prepare("INSERT INTO `prints` (`artistName`, `printName`, `price`, `size`, `description`) VALUES (?, ?, ?, ?, ?)");
 
+        $stmt->bind_param("sssss", $aristName, $paintingName, $price, $description);
 
-        $sql = "INSERT INTO `prints` (`artistName`, `printName`, `price`, `size`, `description`,'imageData') VALUES ('$aristName', '$paintingName', '$price', '$size', '$description')";
+        $stmt->execute();
 
-        parent::executeQuery($sql);
+        //$sql = "INSERT INTO `prints` (`artistName`, `printName`, `price`, `size`, `description`) VALUES ('$aristName', '$paintingName', '$price', '$size', '$description')";
+
+        //parent::executeQuery($sql);
 
     }
 
@@ -45,11 +49,16 @@ class submissionController extends sqlConnection {
         
         $password = password_hash($password, PASSWORD_DEFAULT);
 
+        $stmt = $this->conn->prepare("INSERT INTO `users` (`username`, `password`, `email`) VALUES (?, ?, ?)");
+
+        $stmt->bind_param("sss", $userName, $password, $emailAddress);
         
-        $sql = "INSERT INTO `users` (`username`, `password`, `email`) VALUES ('$userName', '$password', '$emailAddress');";
+        $stmt->execute();
+
+        //$sql = "INSERT INTO `users` (`username`, `password`, `email`) VALUES ('$userName', '$password', '$emailAddress');";
 
        
-        parent::executeQuery($sql);
+        //parent::executeQuery($sql);
 
 
 
