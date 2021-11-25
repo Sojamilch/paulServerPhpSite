@@ -13,12 +13,12 @@ class sqlConnection {
 
   }
 
-  public function executeQuery($sql) //Executes any query onto the database regardless of where it comes from (innsecure) 
-  {
+  //public function executeQuery($sql) //Executes any query onto the database regardless of where it comes from (innsecure) 
+  //{
     
-    $query = mysqli_query($this->conn,$sql);
+   // $query = mysqli_query($this->conn,$sql);
     
-  }
+  //}
 
 
 

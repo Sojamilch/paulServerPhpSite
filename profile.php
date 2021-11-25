@@ -18,7 +18,7 @@ if ($_SESSION['loggedin'] != TRUE)
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">ID</th>
+                <th scope="col">ID</th> 
                 <th scope="col">User Name</th>
             </tr>
         </thead>
