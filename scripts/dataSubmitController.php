@@ -27,7 +27,7 @@ class submissionController extends sqlConnection {
 
         if(move_uploaded_file($tempname, $filePath))
         {
-            
+            chmod($filePath,750);
             $_SESSION["submitSuccess"] = 1; 
             $stmt = $this->conn->prepare("INSERT INTO `prints` (`artistName`, `printName`, `price`, `size`, `description`, `image`) VALUES (?, ?, ?, ?, ?, ?)");
 
@@ -38,6 +38,7 @@ class submissionController extends sqlConnection {
         } else {
 
             $_SESSION["submitSuccess"] = 0; 
+            
         }
 
 
