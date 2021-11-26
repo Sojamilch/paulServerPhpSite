@@ -2,6 +2,7 @@
 
 include('assets/templates/header.php');
 session_start();
+
 ?>
 <body>
     <div class="d-flex justify-content-center align-items-center container mt-5" id="adminForm">

@@ -11,7 +11,7 @@ class submissionController extends sqlConnection {
 
 
         
-
+        $_SESSION["submitSuccess"] = 3;
 
 
         $paintingName = $postData['paintingName'];
@@ -25,22 +25,29 @@ class submissionController extends sqlConnection {
 
         $filePath = '../assets/printImages/'.$filename;
 
-        if(move_uploaded_file($tempname, $filePath))
-        {
-            
-            $_SESSION["submitSuccess"] = 1; 
-            $stmt = $this->conn->prepare("INSERT INTO `prints` (`artistName`, `printName`, `price`, `size`, `description`, `image`) VALUES (?, ?, ?, ?, ?, ?)");
+        $file_parts = pathinfo($filename);
+        if($file_parts['extension'] == 'png'){
+            if(move_uploaded_file($tempname, $filePath))
+            {
+                
+                $_SESSION["submitSuccess"] = 1; 
+                $stmt = $this->conn->prepare("INSERT INTO `prints` (`artistName`, `printName`, `price`, `size`, `description`, `image`) VALUES (?, ?, ?, ?, ?, ?)");
 
-            $stmt->bind_param("ssssss", $aristName, $paintingName, $price, $size, $description, $filename);
+                $stmt->bind_param("ssssss", $aristName, $paintingName, $price, $size, $description, $filename);
 
-            $stmt->execute();
+                $stmt->execute();
+
+            } else {
+
+                $_SESSION["submitSuccess"] = 0; 
+                
+            }
 
         } else {
 
-            $_SESSION["submitSuccess"] = 0; 
-            
+            $_SESSION["submitSuccess"] = 0;
         }
-
+        
 
         
         //$sql = "INSERT INTO `prints` (`artistName`, `printName`, `price`, `size`, `description`) VALUES ('$aristName', '$paintingName', '$price', '$size', '$description')";
