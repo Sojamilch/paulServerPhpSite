@@ -63,14 +63,27 @@ class submissionController extends sqlConnection {
         $password = mysqli_real_escape_string($this->conn, $postData['password']);
 
         
-        $password = password_hash($password, PASSWORD_DEFAULT);
+      
+        if (empty($userName) || empty($emailAddress) || empty($password)) {
 
-        $stmt = $this->conn->prepare("INSERT INTO `users` (`username`, `password`, `email`) VALUES (?, ?, ?)");
+            $_SESSION['submitSuccess'] = 0;
+                
+        } else { 
+            
+            $password = password_hash($password, PASSWORD_DEFAULT);
 
-        $stmt->bind_param("sss", $userName, $password, $emailAddress);
+            $stmt = $this->conn->prepare("INSERT INTO `users` (`username`, `password`, `email`) VALUES (?, ?, ?)");
+
+            $stmt->bind_param("sss", $userName, $password, $emailAddress);
+            
+            $stmt->execute();
+            
+            $_SESSION["submitSuccess"] = 1;
         
-        $stmt->execute();
-
+        
+        
+        
+        }
         //$sql = "INSERT INTO `users` (`username`, `password`, `email`) VALUES ('$userName', '$password', '$emailAddress');";
 
        
@@ -95,7 +108,7 @@ if(isset($_POST['inputArtist']))
 }elseif(isset($_POST['createUser']))
 {
     $submissionController->createUser($_POST);
-    $_SESSION["submitSuccess"] = 1; 
+     
     echo "<script> location.href = '../signup.php';</script>";
 
 

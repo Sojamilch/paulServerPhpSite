@@ -23,8 +23,10 @@ session_start();
             <button type="submit" class="btn btn-primary" name="createUser">Submit</button>
             </form>
             <div id="successMessage">
-                                <?php if ($_SESSION['submitSuccess'] == 1) { $_SESSION['submitSuccess'] = 0;?>
+                                <?php if ($_SESSION['submitSuccess'] == 1) { $_SESSION['submitSuccess'] = 3;?>
                                     <h1 style="color:green;">Account Created!</h1>
+                                <?php } elseif ($_SESSION['submitSuccess'] == 0) { ?>
+                                    <h1 style="color:red;">Please fill out the form</h1>
                                 <?php } ?>
                                 </div>
     </div>
