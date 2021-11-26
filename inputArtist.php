@@ -37,7 +37,7 @@ session_start();
                     <div id="successMessage">
                         <?php if ($_SESSION['submitSuccess'] == 1) { $_SESSION['submitSuccess'] = 3;?>
                             <h1 style="color:green;">Input successful!</h1>
-                        <?php } else { ?>
+                        <?php } elseif ($_SESSION['submitSuccess'] == 0) { ?>
                             <h1 style="color:red;"> Error Uploading Print!</h1>
                         <?php } ?>
                         
