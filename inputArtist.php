@@ -35,8 +35,10 @@ session_start();
                     </div>
                     <input type="submit" class="btn btn-primary" value="Upload" name="inputArtist"></input>
                     <div id="successMessage">
-                        <?php if ($_SESSION['submitSuccess'] == 1) { $_SESSION['submitSuccess'] = 0;?>
+                        <?php if ($_SESSION['submitSuccess'] == 1) { $_SESSION['submitSuccess'] = 3;?>
                             <h1 style="color:green;">Input successful!</h1>
+                        <?php } else { ?>
+                            <h1 style="color:red;"> Error Uploading Print!</h1>
                         <?php } ?>
                         
                     </div>

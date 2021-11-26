@@ -10,7 +10,7 @@ class submissionController extends sqlConnection {
     public function artistSubmission($postData){ //Submits the data that comes from the admin art page
 
 
-        $filePath = '../assets/images';
+        
 
 
 
@@ -19,21 +19,29 @@ class submissionController extends sqlConnection {
         $price = $postData['paintingPrice'];
         $size = $postData['paintingSize'];
         $description = $postData['paintingDescription'];   
-        
-        if(move_uploaded_file($_FILES['paintingImage']['tmp_name'], $filePath))
+
+        $filename = $_FILES['paintingImage']['name'];
+        $tempname = $_FILES['paintingImage']['tmp_name'];
+
+        $filePath = '../assets/printImages/'.$filename;
+
+        if(move_uploaded_file($tempname, $filePath))
         {
+            
+            $_SESSION["submitSuccess"] = 1; 
+            $stmt = $this->conn->prepare("INSERT INTO `prints` (`artistName`, `printName`, `price`, `size`, `description`, `image`) VALUES (?, ?, ?, ?, ?, ?)");
 
-            // 
+            $stmt->bind_param("ssssss", $aristName, $paintingName, $price, $size, $description, $filename);
 
+            $stmt->execute();
+
+        } else {
+
+            $_SESSION["submitSuccess"] = 0; 
         }
 
 
-        $stmt = $this->conn->prepare("INSERT INTO `prints` (`artistName`, `printName`, `price`, `size`, `description`) VALUES (?, ?, ?, ?, ?)");
-
-        $stmt->bind_param("sssss", $aristName, $paintingName, $price, $description);
-
-        $stmt->execute();
-
+        
         //$sql = "INSERT INTO `prints` (`artistName`, `printName`, `price`, `size`, `description`) VALUES ('$aristName', '$paintingName', '$price', '$size', '$description')";
 
         //parent::executeQuery($sql);
@@ -74,7 +82,6 @@ if(isset($_POST['inputArtist']))
 {
 
     $submissionController->artistSubmission($_POST);
-    $_SESSION["submitSuccess"] = 1; 
     echo "<script> location.href = '../inputArtist.php';</script>";
 
 }elseif(isset($_POST['createUser']))
