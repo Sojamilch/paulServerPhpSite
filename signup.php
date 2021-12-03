@@ -25,8 +25,10 @@ session_start();
             <div id="successMessage">
                                 <?php if ($_SESSION['submitSuccess'] == 1) { $_SESSION['submitSuccess'] = 3;?>
                                     <h1 style="color:green;">Account Created!</h1>
-                                <?php } elseif ($_SESSION['submitSuccess'] == 0) { ?>
+                                <?php } elseif ($_SESSION['submitSuccess'] == 0) { $_SESSION['submitSuccess'] = 3;?>
                                     <h1 style="color:red;">Please fill out the form</h1>
+                                <?php } elseif ($_SESSION['submitSuccess'] == 4) { $_SESSION['submitSuccess'] = 3;?>
+                                	<h1 style="color:red;"> Username Already Exists! </h1>
                                 <?php } ?>
                                 </div>
     </div>

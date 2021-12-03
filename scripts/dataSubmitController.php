@@ -62,8 +62,11 @@ class submissionController extends sqlConnection {
         $emailAddress = mysqli_real_escape_string($this->conn, $postData['emailAddress']);
         $password = mysqli_real_escape_string($this->conn, $postData['password']);
 
-        
-      
+  
+      	
+    	
+    
+    
         if (empty($userName) || empty($emailAddress) || empty($password)) {
 
             $_SESSION['submitSuccess'] = 0;
@@ -77,8 +80,16 @@ class submissionController extends sqlConnection {
             $stmt->bind_param("sss", $userName, $password, $emailAddress);
             
             $stmt->execute();
+        		
+        	if (mysqli_error($this->conn)){
+            	$_SESSION["submitSuccess"] = 4;
+            } else {
+            	$_SESSION["submitSuccess"] = 1;
+            }
+                
+                
             
-            $_SESSION["submitSuccess"] = 1;
+            
         
         
         
