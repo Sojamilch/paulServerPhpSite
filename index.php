@@ -5,7 +5,8 @@ include('assets/templates/header.php')
 
 ?>
 
-<body>
+<body>	
+ 		
 		<div class="d-flex justify-content-center align-items-center container mt-5">
   			<div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
  	 			<div class="carousel-inner" >

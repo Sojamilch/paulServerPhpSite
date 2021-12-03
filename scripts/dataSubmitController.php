@@ -26,7 +26,7 @@ class submissionController extends sqlConnection {
         $filePath = '../assets/printImages/'.$filename;
 
         $file_parts = pathinfo($filename);
-        if($file_parts['extension'] == 'png'){
+        if($file_parts['extension'] == 'png' || $file_parts['extension'] == 'jpeg'){
             
             if(move_uploaded_file($tempname, $filePath))
             {

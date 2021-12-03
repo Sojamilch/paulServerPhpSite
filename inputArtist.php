@@ -32,7 +32,7 @@ session_start();
                     </div>
                     <div class="mb-3">
                         <label for="paintingImage" class="form-label" >Upload Image</label>
-                        <input name="paintingImage" type="file" class="form-control" id="paintingImage" accept="image/png" >
+                        <input name="paintingImage" type="file" class="form-control" id="paintingImage" accept="image/png, image/jpeg" >
                     </div>
                     <input type="submit" class="btn btn-primary" value="Upload" name="inputArtist"></input>
                     <div id="successMessage">
