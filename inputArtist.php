@@ -40,6 +40,8 @@ session_start();
                             <h1 style="color:green;">Input successful!</h1>
                         <?php } elseif ($_SESSION['submitSuccess'] == 0) { $_SESSION['submitSuccess'] = 3; ?>
                             <h1 style="color:red;"> Error Uploading Print!</h1>
+                        <?php } elseif ($_SESSION['submitSuccess'] == 4) { $_SESSION['submitSuccess'] = 3;?>
+                            <h1 style="color:red;"> Image Name Already Exists in Storage! (Rename Image file) </h1>
                         <?php } ?>
                         
                     </div>

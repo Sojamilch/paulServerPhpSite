@@ -27,15 +27,22 @@ class submissionController extends sqlConnection {
 
         $file_parts = pathinfo($filename);
         if($file_parts['extension'] == 'png'){
+            
             if(move_uploaded_file($tempname, $filePath))
             {
                 
-                $_SESSION["submitSuccess"] = 1; 
+                
                 $stmt = $this->conn->prepare("INSERT INTO `prints` (`artistName`, `printName`, `price`, `size`, `description`, `image`) VALUES (?, ?, ?, ?, ?, ?)");
 
                 $stmt->bind_param("ssssss", $aristName, $paintingName, $price, $size, $description, $filename);
 
                 $stmt->execute();
+
+                if (mysqli_error($this->conn)){
+                    $_SESSION["submitSuccess"] = 4;
+                } else {
+                    $_SESSION["submitSuccess"] = 1;
+                }
 
             } else {
 
