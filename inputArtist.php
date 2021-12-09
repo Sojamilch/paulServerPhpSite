@@ -32,7 +32,7 @@ session_start();
                     </div>
                     <div class="mb-3">
                         <label for="paintingImage" class="form-label" >Upload Image</label>
-                        <input name="paintingImage" type="file" class="form-control" id="paintingImage" accept="image/png, image/jpeg" >
+                        <input name="paintingImage" type="file" class="form-control" id="paintingImage" accept="image/png, image/jpeg, image/gif" >
                     </div>
                     <input type="submit" class="btn btn-primary" value="Upload" name="inputArtist"></input>
                     <div id="successMessage">
@@ -42,6 +42,8 @@ session_start();
                             <h1 style="color:red;"> Error Uploading Print!</h1>
                         <?php } elseif ($_SESSION['submitSuccess'] == 4) { $_SESSION['submitSuccess'] = 3;?>
                             <h1 style="color:red;"> Image Name Already Exists in Storage! (Rename Image file) </h1>
+                         <?php } elseif ($_SESSION['submitSuccess'] == 5) { $_SESSION['submitSuccess'] = 3;?>
+                            <h1 style="color:red;"> Wrong File type! Only Jpeg/Jpg/Png/GIF </h1>
                         <?php } ?>
                         
                     </div>

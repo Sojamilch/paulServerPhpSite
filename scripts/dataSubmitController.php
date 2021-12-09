@@ -26,7 +26,7 @@ class submissionController extends sqlConnection {
         $filePath = '../assets/printImages/'.$filename;
 
         $file_parts = pathinfo($filename);
-        if($file_parts['extension'] == 'png' || $file_parts['extension'] == 'jpeg'){
+        if($file_parts['extension'] == 'png' || $file_parts['extension'] == 'jpeg' || $file_parts['extension'] == 'jpg' || $file_parts['extension'] == 'gif'){
             
             if(move_uploaded_file($tempname, $filePath))
             {
@@ -52,7 +52,7 @@ class submissionController extends sqlConnection {
 
         } else {
 
-            $_SESSION["submitSuccess"] = 0;
+            $_SESSION["submitSuccess"] = 5;
         }
         
 
