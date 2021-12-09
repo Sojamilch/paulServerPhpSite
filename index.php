@@ -28,7 +28,11 @@ include('assets/templates/header.php')
     				<span class="visually-hidden">Next</span>
   				</button>
 			</div>
+
           </div>
+		  <div class="d-flex justify-content-center align-items-center container">
+							  <a href="https://github.com/Sojamilch/Sojamilch"><img src="https://github-link-card.s3.ap-northeast-1.amazonaws.com/Sojamilch/Sojamilch.png" width="460px"></a> 
+		  </div>
 
 
            <!-- 
